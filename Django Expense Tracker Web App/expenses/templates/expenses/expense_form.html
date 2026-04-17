@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {% if object %}Edit Expense{% else %}Add Expense{% endif %} | Expense Tracker
+{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <h1 class="h1">{% if object %}Edit Expense{% else %}Add Expense{% endif %}</h1>
+
+    <form method="post" class="form">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div class="field">
+        <label for="{{ form.title.id_for_label }}">Title</label>
+        {{ form.title }}
+        {{ form.title.errors }}
+      </div>
+
+      <div class="field">
+        <label for="{{ form.amount.id_for_label }}">Amount</label>
+        {{ form.amount }}
+        {{ form.amount.errors }}
+      </div>
+
+      <div class="field">
+        <label for="{{ form.category.id_for_label }}">Category</label>
+        {{ form.category }}
+        {{ form.category.errors }}
+      </div>
+
+      <div class="field">
+        <label for="{{ form.date.id_for_label }}">Date</label>
+        {{ form.date }}
+        {{ form.date.errors }}
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn">Save</button>
+        <a class="btn btn--secondary" href="{% url 'expense_list' %}">Cancel</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

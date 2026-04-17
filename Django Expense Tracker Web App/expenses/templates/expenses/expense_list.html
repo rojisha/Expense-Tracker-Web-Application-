@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}My Expenses | Expense Tracker{% endblock %}
+
+{% block content %}
+  <div class="page-head">
+    <h1 class="h1">My Expenses</h1>
+    <a class="btn" href="{% url 'expense_create' %}">Add Expense</a>
+  </div>
+
+  {% if expenses %}
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th class="right">Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th class="right">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for expense in expenses %}
+            <tr>
+              <td>{{ expense.title }}</td>
+              <td class="right">{{ expense.amount }}</td>
+              <td>{{ expense.category }}</td>
+              <td>{{ expense.date }}</td>
+              <td class="right">
+                <a class="btn btn--secondary" href="{% url 'expense_update' expense.pk %}">Edit</a>
+                <a class="btn btn--danger" href="{% url 'expense_delete' expense.pk %}">Delete</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="empty">
+      <p>No expenses yet.</p>
+      <p><a href="{% url 'expense_create' %}">Add your first expense</a>.</p>
+    </div>
+  {% endif %}
+{% endblock %}
