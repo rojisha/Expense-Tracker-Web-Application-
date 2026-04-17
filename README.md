@@ -11,7 +11,7 @@ A lightweight web application built with Django for managing personal expenses. 
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/rojisha/Expense-Tracker-Web-Application.git](https://github.com/rojisha/Expense-Tracker-Web-Application.git)
+   git clone [https://github.com/rojisha/Expense-Tracker-Web-Application-.git](https://github.com/rojisha/Expense-Tracker-Web-Application-.git)
    cd Expense-Tracker-Web-Application
    ```
 2. **Install Dependencies:**
