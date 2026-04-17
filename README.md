@@ -44,6 +44,13 @@ Navigate to http://127.0.0.1:8000/ in your browser.
 | **Edit Expense** | `/expenses/<id>/edit/` | Modify details of an existing entry. |
 | **Delete Expense**| `/expenses/<id>/delete/` | Remove an entry from the database. |
 
+## Approach
+
+- Uses Django’s built-in auth with a **custom user model** (`accounts.User`).
+- Expense CRUD is implemented with **class-based views** and templates.
+- All expense pages require authentication, and each query is restricted to the logged-in user.
+- Uses Django **messages** framework for success feedback.
+
 ## Screenshots
 <img width="1479" height="549" alt="image" src="https://github.com/user-attachments/assets/844dc7cf-49a1-4c43-9d12-82ea4acc99fb" />
 &nbsp;
